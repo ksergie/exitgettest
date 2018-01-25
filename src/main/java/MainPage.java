@@ -13,7 +13,12 @@ public class MainPage {
     private By getSmallButton = By.xpath("//button[@id='headerRegister']");
     private By startMarketingButton = By.xpath("//button[@id='generateLeadsButton']");
     private By getBlogLink = By.xpath("//div[@id='footerLinks2']/a[text()='Blog']");
+    private By titlePage = By.xpath("//div[@id='topImageBox']/h1");
 
+    // Get page title
+    public String getTitle() {
+        return drv.findElement(titlePage).getText();
+    }
     // Click the Blog link
     public BlogPage clickBlogLink() {
         drv.findElement(getBlogLink).click();

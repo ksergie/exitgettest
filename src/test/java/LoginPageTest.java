@@ -26,11 +26,26 @@ public class LoginPageTest {
     }
 
     @Test
-    public void LoginWithCorrectData() {
+    public void loginWithCorrectData() {
         DashboardPage dashboardPage = logInPage.logInExitget("exitgetest@gmail.com", "20exitget17");
         String title = dashboardPage.getTitle();
         Assert.assertEquals("VISITATIONS", title);
     }
+
+    @Test
+    public void clickCloseIcon() {
+        MainPage mainPage = logInPage.closeWindow();
+        String title = mainPage.getTitle();
+        Assert.assertEquals("A Popup Platform for Everyone", title);
+    }
+
+    @Test
+    public void clickForgotlink(){
+        ResetPage resetPage = logInPage.resetPasswd();
+        String title = resetPage.getTitle();
+        Assert.assertEquals("Reset", title);
+    }
+
     @After
     public void tearDown() {
         drv.quit();
