@@ -65,6 +65,32 @@ public class MainPageTest {
         Assert.assertEquals("We're a small team of experts, dedicated to making the process of growing a business a little easier.", title);
     }
 
+    @Test
+    public void clickTriggersButton() {
+        mainPage.clickTriggersButton();
+        Assert.assertTrue("The pressed Triggers button is not matched the image below", mainPage.imgTriggers());
+    }
+    @Test
+    public void clickExitIntentButton() {
+        mainPage.clickExitIntentButton();
+        Assert.assertTrue("The pressed Exit Intent button is not matched the image below", mainPage.imgExitIntent());
+    }
+    @Test
+    public void clickDisplayButton() {
+        mainPage.clicktDisplay();
+        Assert.assertTrue("The pressed Display button is not matched the image below", mainPage.imgDisplay());
+    }
+    @Test
+    public void clickPositionButton() {
+        mainPage.clickPosition();
+        Assert.assertTrue("The pressed Positioning button is not matched the image below", mainPage.imgPosition());
+    }
+    @Test
+    public void clickValidationButton() {
+        mainPage.clickValidation();
+        Assert.assertTrue("The pressed Validation button is not matched the image below", mainPage.imgValidation());
+    }
+
     @After
     public void tearDown() {
         drv.quit();
