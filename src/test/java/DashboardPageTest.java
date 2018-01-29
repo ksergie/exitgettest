@@ -31,12 +31,14 @@ public class DashboardPageTest {
     public void smokeTest() {
         DashboardPage dashboardPage = logInPage.logInExitget("exitgetest@gmail.com", "20exitget17");
         dashboardPage.clearData();
+        Assert.assertEquals("FAULT: the account is not cleared", "0", dashboardPage.getTestResult());
+        dashboardPage.quickStart();
     }
 
 
     @After
     public void tearDown() {
-        drv.quit();
+        // drv.quit();
     }
 
 }
