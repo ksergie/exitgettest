@@ -1,3 +1,4 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -14,6 +15,9 @@ public class MainClass {
         drv.get("https://exitget.com");
 
         MainPage mainPage = new MainPage(drv);
-        mainPage.clickBigButton();
+        drv.findElement(By.xpath("//a[@id='learnMoreIconLink']")).click();
+        drv.findElement(By.xpath("//div[@id='templateThemes']/div[2]/img")).click();
+
+
     }
 }

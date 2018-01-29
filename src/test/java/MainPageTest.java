@@ -1,27 +1,30 @@
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.apache.commons.io.FileUtils;
+import org.junit.*;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 public class MainPageTest {
     private WebDriver drv;
     private MainPage mainPage;
 
+
     @Before
     public void setUp() {
         // Check the path to the driver
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\sk\\IdeaProjects\\exitgettest\\drivers\\chromedriver.exe");
         drv = new ChromeDriver();
-        drv.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        drv.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         drv.manage().window().maximize();
-        drv.get("https://exitget.com");
+        drv.get("https://exitget.com/");
         mainPage = new MainPage(drv);
     }
+
 
     @Test
     public void pushLoginButton() {
@@ -30,12 +33,14 @@ public class MainPageTest {
         Assert.assertEquals("Login", title);
     }
 
+
     @Test
     public void pushBigGetStartedButton() {
         RegistrationPage registrationPage = mainPage.clickBigButton();
         String title = registrationPage.getTitle();
         Assert.assertEquals("Registration", title);
     }
+
 
     @Test
     public void pushSmallGetStartButton() {
@@ -44,6 +49,7 @@ public class MainPageTest {
         Assert.assertEquals("Registration", title);
     }
 
+
     @Test
     public void pushStartMarketingButton() {
         RegistrationPage registrationPage = mainPage.clickStartMarketing();
@@ -51,12 +57,14 @@ public class MainPageTest {
         Assert.assertEquals("Registration", title);
     }
 
+
     @Test
     public void clickBloglink() {
         BlogPage blogPage = mainPage.clickBlogLink();
         String title = blogPage.getTitle();
         Assert.assertEquals("Subscribe to us", title);
     }
+
 
     @Test
     public void clickAboutUslink() {
@@ -69,6 +77,12 @@ public class MainPageTest {
     public void clickTriggersButton() {
         mainPage.clickTriggersButton();
         Assert.assertTrue("The pressed Triggers button is not matched the image below", mainPage.imgTriggers());
+        File screenshot = ((TakesScreenshot)drv).getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(screenshot, new File("D:\\screenshots\\triggerButton.png"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     @Test
     public void clickExitIntentButton() {
@@ -90,6 +104,13 @@ public class MainPageTest {
         mainPage.clickValidation();
         Assert.assertTrue("The pressed Validation button is not matched the image below", mainPage.imgValidation());
     }
+
+//    @Ignore
+//    @Test
+//    public void pushTechNewsPopup() {
+//        mainPage.clickTechNewsPopup();
+//        Assert.assertTrue(mainPage.popupTechNews());
+//    }
 
     @After
     public void tearDown() {

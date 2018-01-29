@@ -25,6 +25,17 @@ public class MainPage {
     private By scrnshotPosition = By.xpath("//div[@id='screenshotDisplayArea']/img[contains(@src, 'animation-position')]");
     private By validationButton = By.xpath("//div[@id='screenshotListOptions']/a[text()='Validation']");
     private By scrnshotValidation = By.xpath("//div[@id='screenshotDisplayArea']/img[contains(@src, 'settings-validation')]");
+    private By techNewsPopup = By.xpath("//img[contains(@src, 'emailtechpop2')]");
+    private By windowNewsPopup = By.xpath("//button[@id='exitget_input_3']");
+
+    //Clict the TechNewsPopup
+    public MainPage clickTechNewsPopup(){
+        drv.findElement(techNewsPopup).click();
+        return this;
+    }
+    public boolean popupTechNews() {
+        return drv.findElement(windowNewsPopup).isDisplayed();
+    }
 
     // Click the Triggers button and check image
     public MainPage clickTriggersButton(){
