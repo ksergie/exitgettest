@@ -4,7 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 public class DashboardPageTest {
@@ -16,8 +17,18 @@ public class DashboardPageTest {
     @Before
     public void setUp() {
         // Check the path to the driver
+
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\sk\\IdeaProjects\\exitgettest\\drivers\\chromedriver.exe");
-        drv = new ChromeDriver();
+        System.setProperty("webdriver.edge.driver", "C:\\Users\\sk\\IdeaProjects\\exitgettest\\drivers\\MicrosoftWebDriver.exe");
+        System.setProperty("webdriver.gecko.driver", "C:\\Users\\sk\\IdeaProjects\\exitgettest\\drivers\\geckodriver.exe");
+        
+        // Uncomment to select tested browser
+
+        // drv = new ChromeDriver();
+        // drv = new EdgeDriver();
+        drv = new FirefoxDriver();
+
+
         drv.manage().window().maximize();
         dashboardPage = new DashboardPage(drv);
         logInPage = new LogInPage(drv);

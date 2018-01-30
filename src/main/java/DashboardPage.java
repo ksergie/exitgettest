@@ -30,7 +30,7 @@ public class DashboardPage {
     private By redirectUrlNextButton = By.xpath("//div[@id='inputRedirectionUrl']//input[@value='Next']");
     private By selectIntentNextButton = By.xpath(".//*[@id='triggerType']//button");
     private By confirmOpenButton = By.xpath("//button[text()='Open']");
-    private By confirmConfirmButton = By.xpath("//button[text()='Confirm']");
+
 
 
     public String getTitle() {
@@ -58,7 +58,7 @@ public class DashboardPage {
     }
 
     public DashboardPage quickStart() {
-        wait = new WebDriverWait(drv, 10);
+        wait = new WebDriverWait(drv, 15);
         // click the "QuickStart Guide" link
         wait.until(ExpectedConditions.visibilityOfElementLocated(quickStartLink)).click();
         // input the installation URL
