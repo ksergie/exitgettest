@@ -28,6 +28,9 @@ public class DashboardPage {
     private By personalDesignNextButton = By.xpath(".//*[@id='customizeDesign']//button[1]");
     private By redirectionUrlField = By.xpath("//input[@id='redirectionUrl']");
     private By redirectUrlNextButton = By.xpath("//div[@id='inputRedirectionUrl']//input[@value='Next']");
+    private By selectIntentNextButton = By.xpath(".//*[@id='triggerType']//button");
+    private By confirmOpenButton = By.xpath("//button[text()='Open']");
+    private By confirmConfirmButton = By.xpath("//button[text()='Confirm']");
 
 
     public String getTitle() {
@@ -76,6 +79,12 @@ public class DashboardPage {
         // Input Redirection URL and click the "Next" button
         wait.until(ExpectedConditions.visibilityOfElementLocated(redirectionUrlField)).sendKeys("https://exitget.com/");
         wait.until(ExpectedConditions.visibilityOfElementLocated(redirectUrlNextButton)).click();
+        // Set Time delay and click the Next button
+        wait.until(ExpectedConditions.visibilityOfElementLocated(selectIntentNextButton)).click();
+        // Confirm Installation
+        wait.until(ExpectedConditions.visibilityOfElementLocated(confirmOpenButton)).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(confirmConfirmButton)).click();
+
         return new DashboardPage(drv);
     }
 
