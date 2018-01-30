@@ -58,7 +58,7 @@ public class DashboardPage {
     }
 
     public DashboardPage quickStart() {
-        wait = new WebDriverWait(drv, 15);
+        wait = new WebDriverWait(drv, 20);
         // click the "QuickStart Guide" link
         wait.until(ExpectedConditions.visibilityOfElementLocated(quickStartLink)).click();
         // input the installation URL
@@ -83,7 +83,7 @@ public class DashboardPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(selectIntentNextButton)).click();
         // Confirm Installation
         wait.until(ExpectedConditions.visibilityOfElementLocated(confirmOpenButton)).click();
-        // wait.until(ExpectedConditions.visibilityOfElementLocated(confirmConfirmButton)).click();
+
 
         return new DashboardPage(drv);
     }
