@@ -83,7 +83,7 @@ public class DashboardPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(selectIntentNextButton)).click();
         // Confirm Installation
         wait.until(ExpectedConditions.visibilityOfElementLocated(confirmOpenButton)).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(confirmConfirmButton)).click();
+        // wait.until(ExpectedConditions.visibilityOfElementLocated(confirmConfirmButton)).click();
 
         return new DashboardPage(drv);
     }
