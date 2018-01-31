@@ -22,7 +22,7 @@ public class DashboardPageTest {
         System.setProperty("webdriver.edge.driver", "C:\\Users\\sk\\IdeaProjects\\exitgettest\\drivers\\MicrosoftWebDriver.exe");
         System.setProperty("webdriver.gecko.driver", "C:\\Users\\sk\\IdeaProjects\\exitgettest\\drivers\\geckodriver.exe");
 
-        // Uncomment to select tested browser
+        // Select the browser
 
 //        drv = new ChromeDriver();
 //        drv = new EdgeDriver();

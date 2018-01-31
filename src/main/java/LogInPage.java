@@ -1,8 +1,11 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LogInPage {
     private WebDriver drv;
+    private WebDriverWait wait;
 
     public LogInPage(WebDriver drv) {
         this.drv = drv;
@@ -14,6 +17,7 @@ public class LogInPage {
     private By fogotPasswordLink = By.xpath("//div[@id='login_frame']//a[text()='Forgot password?']");
     private By closeIcon = By.xpath("//div[@id='login_frame']//img");
     private By titlePage = By.xpath("//div[@id='login_frame']/div/div[1]");
+    private By toolTip = By.xpath("//div[@id='login_frame']//div[@class='_logicstatus']");
 
     // Get page title
     public String getTitle() {
@@ -33,10 +37,15 @@ public class LogInPage {
     }
 
     // Click the "Login" button
+    public LogInPage clickLoginButton(){
+        drv.findElement(loginButton).click();
+        return this;
+    }
+
     public DashboardPage logInExitget(String email, String passwd) {
         this.typeEmail(email);
         this.typePassword(passwd);
-        drv.findElement(loginButton).click();
+        this.clickLoginButton();
         return new DashboardPage(drv);
     }
 
@@ -50,5 +59,10 @@ public class LogInPage {
     public MainPage closeWindow() {
         drv.findElement(closeIcon).click();
         return new MainPage(drv);
+    }
+
+    public String getToolTip(){
+        wait = new WebDriverWait(drv, 10);
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(toolTip)).getText();
     }
 }

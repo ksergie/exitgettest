@@ -11,12 +11,12 @@ public class DashboardPage {
         this.drv = drv;
     }
 
-    private By titlePage = By.xpath("//div[@id='stats_highlight']//div[contains(@value, 'by unique users')]");
+    private By titlePage = By.xpath("//div[@id='header_links']/a");
+    private By testResult = By.xpath("(//div[@id='stats_panel_table_div']//div[@class='value'])[1]");
     private By accountButton = By.xpath("//button[@id='accountButton']");
     private By passwordField = By.xpath("//input[@id='accountpass2']");
     private By resetAccountButton = By.xpath("//button[text()='RESET ACCOUNT']");
     private By closeButton = By.xpath("//button[text()='CLOSE']");
-    private By testResult = By.xpath("//div[text()='VISITORS']/following-sibling::div");
     private By quickStartLink = By.xpath("//a[text()='QuickStart Guide']");
     private By installUrlField = By.xpath("//input[@id='installUrl']");
     private By urlNextButton = By.xpath("//div[@id='inputUrl']/div[2]//input[@value='Next']");
@@ -34,10 +34,12 @@ public class DashboardPage {
 
 
     public String getTitle() {
-       return wait.until(ExpectedConditions.presenceOfElementLocated(titlePage)).getText();
+       wait = new WebDriverWait(drv, 10);
+       return wait.until(ExpectedConditions.visibilityOfElementLocated(titlePage)).getText();
     }
 
     public String getTestResult() {
+        wait = new WebDriverWait(drv, 10);
         return wait.until(ExpectedConditions.visibilityOfElementLocated(testResult)).getText();
     }
 

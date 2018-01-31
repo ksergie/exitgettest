@@ -59,7 +59,7 @@ public class MainPageTest {
 
 
     @Test
-    public void clickBloglink() {
+    public void clickBlogLink() {
         BlogPage blogPage = mainPage.clickBlogLink();
         String title = blogPage.getTitle();
         Assert.assertEquals("Subscribe to us", title);
@@ -67,7 +67,7 @@ public class MainPageTest {
 
 
     @Test
-    public void clickAboutUslink() {
+    public void clickAboutUsLink() {
         AboutUsPage aboutUsPage = mainPage.clickAboutUsLink();
         String title = aboutUsPage.getTitle();
         Assert.assertEquals("We're a small team of experts, dedicated to making the process of growing a business a little easier.", title);
