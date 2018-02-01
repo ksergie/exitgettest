@@ -3,9 +3,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 public class DashboardPage {
     private WebDriver drv;
     private WebDriverWait wait;
+
 
     public DashboardPage(WebDriver drv) {
         this.drv = drv;
@@ -30,6 +32,7 @@ public class DashboardPage {
     private By redirectUrlNextButton = By.xpath("//div[@id='inputRedirectionUrl']//input[@value='Next']");
     private By selectIntentNextButton = By.xpath(".//*[@id='triggerType']//button");
     private By confirmOpenButton = By.xpath("//button[text()='Open']");
+
 
 
 
@@ -60,7 +63,7 @@ public class DashboardPage {
     }
 
     public DashboardPage quickStart() {
-        wait = new WebDriverWait(drv, 20);
+        wait = new WebDriverWait(drv, 50);
         // click the "QuickStart Guide" link
         wait.until(ExpectedConditions.visibilityOfElementLocated(quickStartLink)).click();
         // input the installation URL
@@ -75,7 +78,7 @@ public class DashboardPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(filter)).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(filterEmail));
         // Click the Purple BlackFriday template
-        drv.findElement(blackFridayTemplate).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(blackFridayTemplate)).click();
         // Skip Personal design
         wait.until(ExpectedConditions.visibilityOfElementLocated(personalDesignNextButton)).click();
         // Input Redirection URL and click the "Next" button

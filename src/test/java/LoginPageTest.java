@@ -25,9 +25,9 @@ public class LoginPageTest {
 
 //        Select the browser
 
-//        drv = new ChromeDriver();
+        drv = new ChromeDriver();
 //        drv = new FirefoxDriver();
-        drv = new EdgeDriver();
+//        drv = new EdgeDriver();
 
         drv.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         drv.manage().window().maximize();
