@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -7,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class DashboardPage {
     private WebDriver drv;
     private WebDriverWait wait;
+    private Actions actions;
 
 
     public DashboardPage(WebDriver drv) {
@@ -32,23 +34,25 @@ public class DashboardPage {
     private By redirectUrlNextButton = By.xpath("//div[@id='inputRedirectionUrl']//input[@value='Next']");
     private By selectIntentNextButton = By.xpath(".//*[@id='triggerType']//button");
     private By confirmOpenButton = By.xpath("//button[text()='Open']");
-
-
+    private By checkExitIntent = By.xpath("//input[@id='exitIntent']/following-sibling::div[1]");
+    private By checkTimeDelay = By.xpath("//input[@id='timeDelay']/following-sibling::div[1]");
+    private By popupButton = By.xpath("//button[@id='exitget_input_3']");
+    private By confirmButton = By.xpath("//button[text()='Confirm']");
 
 
     public String getTitle() {
-       wait = new WebDriverWait(drv, 10);
+       wait = new WebDriverWait(drv, 5);
        return wait.until(ExpectedConditions.visibilityOfElementLocated(titlePage)).getText();
     }
 
     public String getTestResult() {
-        wait = new WebDriverWait(drv, 10);
+        wait = new WebDriverWait(drv, 5);
         return wait.until(ExpectedConditions.visibilityOfElementLocated(testResult)).getText();
     }
 
     // Click the "Account" button and reset the account data
     public DashboardPage clearData() {
-        wait = new WebDriverWait(drv, 10);
+        wait = new WebDriverWait(drv, 5);
         // click the Account button
         wait.until(ExpectedConditions.visibilityOfElementLocated(accountButton)).click();
         // fill the password field
@@ -63,16 +67,18 @@ public class DashboardPage {
     }
 
     public DashboardPage quickStart() {
-        wait = new WebDriverWait(drv, 50);
+        actions = new Actions(drv);
+        wait = new WebDriverWait(drv, 5);
         // click the "QuickStart Guide" link
         wait.until(ExpectedConditions.visibilityOfElementLocated(quickStartLink)).click();
         // input the installation URL
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Enter the installation URL']")));
         wait.until(ExpectedConditions.visibilityOfElementLocated(installUrlField)).sendKeys("exitgetester.tumblr.com");
         // and click the "Next" button
         wait.until(ExpectedConditions.visibilityOfElementLocated(urlNextButton)).click();
         // Set up developer mode and click the Next button
         wait.until(ExpectedConditions.visibilityOfElementLocated(switchDevMode)).click();
-        drv.findElement(devModeNextButton).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(devModeNextButton)).click();
         // Redirect Only
         drv.findElement(filter);
         wait.until(ExpectedConditions.visibilityOfElementLocated(filter)).click();
@@ -84,12 +90,33 @@ public class DashboardPage {
         // Input Redirection URL and click the "Next" button
         wait.until(ExpectedConditions.visibilityOfElementLocated(redirectionUrlField)).sendKeys("https://exitget.com/");
         wait.until(ExpectedConditions.visibilityOfElementLocated(redirectUrlNextButton)).click();
-        // Set Time delay and click the Next button
+        // Unset Time delay, set Exit Intent and click the Next button
+        wait.until(ExpectedConditions.visibilityOfElementLocated(checkTimeDelay)).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(checkExitIntent)).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(selectIntentNextButton)).click();
         // Confirm Installation
         wait.until(ExpectedConditions.visibilityOfElementLocated(confirmOpenButton)).click();
 
+        // Get Main windows's handle
+        String mainWindowHandle = drv.getWindowHandle();
 
+        // Switch to the Exitget.com tab
+        for (String tab: drv.getWindowHandles()) {
+            drv.switchTo().window(tab);
+        }
+        // Get Popup Window
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id='header']/div[2]/figure/a")));
+        new WebDriverWait(drv, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Exitget is a first of its kind, completely free popup platform']")));
+        actions.moveByOffset(0, 1).build().perform();
+        // Switch to the Popup window
+        for (String tab: drv.getWindowHandles()) {
+            drv.switchTo().window(tab);
+        }
+        wait.until(ExpectedConditions.visibilityOfElementLocated(popupButton)).click();
+        // Move to Main window
+        drv.switchTo().window(mainWindowHandle);
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(confirmButton)).click();
         return new DashboardPage(drv);
     }
 

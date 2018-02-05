@@ -24,9 +24,9 @@ public class DashboardPageTest {
 
         // Select the browser
 
-//        drv = new ChromeDriver();
+        drv = new ChromeDriver();
 //        drv = new EdgeDriver();
-        drv = new FirefoxDriver();
+//        drv = new FirefoxDriver();
 
 
         drv.manage().window().maximize();
