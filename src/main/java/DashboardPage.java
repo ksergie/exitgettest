@@ -41,18 +41,18 @@ public class DashboardPage {
 
 
     public String getTitle() {
-       wait = new WebDriverWait(drv, 5);
+       wait = new WebDriverWait(drv, 10);
        return wait.until(ExpectedConditions.visibilityOfElementLocated(titlePage)).getText();
     }
 
     public String getTestResult() {
-        wait = new WebDriverWait(drv, 5);
+        wait = new WebDriverWait(drv, 10);
         return wait.until(ExpectedConditions.visibilityOfElementLocated(testResult)).getText();
     }
 
     // Click the "Account" button and reset the account data
     public DashboardPage clearData() {
-        wait = new WebDriverWait(drv, 5);
+        wait = new WebDriverWait(drv, 10);
         // click the Account button
         wait.until(ExpectedConditions.visibilityOfElementLocated(accountButton)).click();
         // fill the password field
@@ -68,7 +68,7 @@ public class DashboardPage {
 
     public DashboardPage quickStart() {
         actions = new Actions(drv);
-        wait = new WebDriverWait(drv, 5);
+        wait = new WebDriverWait(drv, 10);
         // click the "QuickStart Guide" link
         wait.until(ExpectedConditions.visibilityOfElementLocated(quickStartLink)).click();
         // input the installation URL
@@ -105,7 +105,6 @@ public class DashboardPage {
             drv.switchTo().window(tab);
         }
         // Get Popup Window
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id='header']/div[2]/figure/a")));
         new WebDriverWait(drv, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Exitget is a first of its kind, completely free popup platform']")));
         actions.moveByOffset(0, 1).build().perform();
         // Switch to the Popup window

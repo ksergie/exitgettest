@@ -3,12 +3,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-
-public class DashboardPageTest {
+public class FirefoxSmokeTest {
     private WebDriver drv;
     private DashboardPage dashboardPage;
     private LogInPage logInPage;
@@ -18,15 +15,12 @@ public class DashboardPageTest {
     public void setUp() {
         // Check the path to the driver
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\sk\\IdeaProjects\\exitgettest\\drivers\\chromedriver.exe");
-        System.setProperty("webdriver.edge.driver", "C:\\Users\\sk\\IdeaProjects\\exitgettest\\drivers\\MicrosoftWebDriver.exe");
-        System.setProperty("webdriver.gecko.driver", "C:\\Users\\sk\\IdeaProjects\\exitgettest\\drivers\\geckodriver.exe");
+
+        System.setProperty("webdriver.gecko.driver", "C:\\Users\\Administrator\\IdeaProjects\\exitgettest\\drivers\\geckodriver.exe");
 
         // Select the browser
 
-        drv = new ChromeDriver();
-//        drv = new EdgeDriver();
-//        drv = new FirefoxDriver();
+        drv = new FirefoxDriver();
 
 
         drv.manage().window().maximize();
@@ -49,7 +43,7 @@ public class DashboardPageTest {
 
     @After
     public void tearDown() {
-        // drv.quit();
+        drv.quit();
     }
 
 }
