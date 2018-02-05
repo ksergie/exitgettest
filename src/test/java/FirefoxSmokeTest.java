@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+
 public class FirefoxSmokeTest {
     private WebDriver drv;
     private DashboardPage dashboardPage;

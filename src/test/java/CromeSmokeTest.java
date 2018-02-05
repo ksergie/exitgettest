@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-
 public class CromeSmokeTest {
     private WebDriver drv;
     private DashboardPage dashboardPage;
@@ -15,6 +14,7 @@ public class CromeSmokeTest {
     @Before
     public void setUp() {
         // Check the path to the driver
+
 
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\IdeaProjects\\exitgettest\\drivers\\chromedriver.exe");
 

@@ -34,8 +34,8 @@ public class DashboardPage {
     private By redirectUrlNextButton = By.xpath("//div[@id='inputRedirectionUrl']//input[@value='Next']");
     private By selectIntentNextButton = By.xpath(".//*[@id='triggerType']//button");
     private By confirmOpenButton = By.xpath("//button[text()='Open']");
-    private By checkExitIntent = By.xpath("//input[@id='exitIntent']/following-sibling::div[1]");
-    private By checkTimeDelay = By.xpath("//input[@id='timeDelay']/following-sibling::div[1]");
+//    private By checkExitIntent = By.xpath("//input[@id='exitIntent']/following-sibling::div[1]");
+//    private By checkTimeDelay = By.xpath("//input[@id='timeDelay']/following-sibling::div[1]");
     private By popupButton = By.xpath("//button[@id='exitget_input_3']");
     private By confirmButton = By.xpath("//button[text()='Confirm']");
 
@@ -90,9 +90,7 @@ public class DashboardPage {
         // Input Redirection URL and click the "Next" button
         wait.until(ExpectedConditions.visibilityOfElementLocated(redirectionUrlField)).sendKeys("https://exitget.com/");
         wait.until(ExpectedConditions.visibilityOfElementLocated(redirectUrlNextButton)).click();
-        // Unset Time delay, set Exit Intent and click the Next button
-        wait.until(ExpectedConditions.visibilityOfElementLocated(checkTimeDelay)).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(checkExitIntent)).click();
+        // set Time delay and click the Next button
         wait.until(ExpectedConditions.visibilityOfElementLocated(selectIntentNextButton)).click();
         // Confirm Installation
         wait.until(ExpectedConditions.visibilityOfElementLocated(confirmOpenButton)).click();
@@ -105,8 +103,8 @@ public class DashboardPage {
             drv.switchTo().window(tab);
         }
         // Get Popup Window
-        new WebDriverWait(drv, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Exitget is a first of its kind, completely free popup platform']")));
-        actions.moveByOffset(0, 1).build().perform();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id='header']/div[1]/a")));
+        actions.moveByOffset(0, 0).build().perform();
         // Switch to the Popup window
         for (String tab: drv.getWindowHandles()) {
             drv.switchTo().window(tab);

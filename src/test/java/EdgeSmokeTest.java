@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
 
 public class EdgeSmokeTest {
     private WebDriver drv;
@@ -16,13 +16,12 @@ public class EdgeSmokeTest {
     public void setUp() {
         // Check the path to the driver
 
+
         System.setProperty("webdriver.edge.driver", "C:\\Users\\Administrator\\IdeaProjects\\exitgettest\\drivers\\MicrosoftWebDriver.exe");
 
         // Select the browser
 
-
         drv = new EdgeDriver();
-
 
 
         drv.manage().window().maximize();
