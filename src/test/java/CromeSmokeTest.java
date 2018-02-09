@@ -16,7 +16,7 @@ public class CromeSmokeTest {
         // Check the path to the driver
 
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\IdeaProjects\\exitgettest\\drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\drivers\\chromedriver.exe");
 
         // Select the browser
 

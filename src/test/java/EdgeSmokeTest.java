@@ -17,7 +17,7 @@ public class EdgeSmokeTest {
         // Check the path to the driver
 
 
-        System.setProperty("webdriver.edge.driver", "C:\\Users\\Administrator\\IdeaProjects\\exitgettest\\drivers\\MicrosoftWebDriver.exe");
+        System.setProperty("webdriver.edge.driver", "C:\\drivers\\MicrosoftWebDriver.exe");
 
         // Select the browser
 

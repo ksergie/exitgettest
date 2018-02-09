@@ -17,7 +17,7 @@ public class FirefoxSmokeTest {
         // Check the path to the driver
 
 
-        System.setProperty("webdriver.gecko.driver", "C:\\Users\\Administrator\\IdeaProjects\\exitgettest\\drivers\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "C:\\drivers\\geckodriver.exe");
 
         // Select the browser
 
