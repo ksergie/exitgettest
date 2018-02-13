@@ -18,6 +18,7 @@ public class MainPageTestStep {
 
     @Step("Click the \"Log In\" button")
     public void clickLoginButton() {
+        openMainPage();
         mainPage.clickLogIn();
     }
 
