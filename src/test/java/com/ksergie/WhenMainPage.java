@@ -2,6 +2,7 @@ package com.ksergie;
 
 import com.ksergie.steps.MainPageTestStep;
 import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import org.assertj.core.api.Assertions;
@@ -21,9 +22,7 @@ public class WhenMainPage {
 
     @Test
     public void clickLoginButton() {
-        steps.openMainPage();
         steps.clickLoginButton();
-
     }
 
 }

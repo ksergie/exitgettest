@@ -4,9 +4,10 @@ import com.ksergie.pages.DashboardPage;
 import com.ksergie.pages.LogInPage;
 import com.ksergie.pages.MainPage;
 import com.ksergie.pages.ResetPage;
+import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.Step;
 
-
+@DefaultUrl("https://exitget.com/")
 public class LoginPageTestSteps {
 
     LogInPage logInPage;
@@ -23,11 +24,15 @@ public class LoginPageTestSteps {
 
     @Step("Click the \"Forgot password\" link")
     public void resetPasswd(){
+        mainPage.open();
+        mainPage.clickLogIn();
         logInPage.resetPasswd();
     }
 
     @Step("Click the \"Close\" icon")
     public void closeLoginPage(){
+        mainPage.open();
+        mainPage.clickLogIn();
         logInPage.closeWindow();
     }
 

@@ -53,7 +53,7 @@ public class LogInPage extends PageObject {
 
     // Click the "Close" icon
     public MainPage closeWindow() {
-        find(closeIcon).click();
+        find(closeIcon).waitUntilVisible().click();
         return new MainPage();
     }
 
