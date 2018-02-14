@@ -9,6 +9,6 @@ public class ResetPage extends PageObject{
     private By titlePage = By.xpath("//div[@id='forgot_frame']/div/div[1]");
 
     public String getTitle(){
-        return find(titlePage).getText();
+        return find(titlePage).waitUntilVisible().getText();
     }
 }
