@@ -37,8 +37,8 @@ public class LoginPageTestSteps {
     }
 
     @Step("Get tooltip message")
-    public void getToolTip() {
-        logInPage.getToolTip();
+    public String getToolTip() {
+        return logInPage.getToolTip();
     }
 
     @Step("Get Dashboard title")

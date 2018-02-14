@@ -23,49 +23,49 @@ public class WhenLoginPage {
     @Test
     public void loginWithCorrectData() {
         steps.loginExitget("exitgetest@gmail.com", "20exitget17");
-//        Assertions.assertThat("exitgettest", steps.getDashboardTitle());
+        Assertions.assertThat("exitgettest").isEqualTo(steps.getDashboardTitle());
     }
 
     @Test
     public void loginWithoutData() {
         steps.loginExitget("", "");
-//        Assertions.assertThat("You must provide the email address you registered with.", steps.getToolTip());
+        Assertions.assertThat("You must provide the email address you registered with.").isEqualTo(steps.getToolTip());
     }
 
     @Test
     public void loginWithoutPasswd() {
         steps.loginExitget("exitgetest@gmail.com", "");
-//        Assertions.assertThat("You must provide a password to login.", steps.getToolTip());
+        Assertions.assertThat("You must provide a password to login.").isEqualTo(steps.getToolTip());
     }
 
     @Test
     public void loginWithIncorrectEmail() {
         steps.loginExitget("123qwer", "");
-//        Assertions.assertThat("You must provide a valid email address.", steps.getToolTip());
+        Assertions.assertThat("You must provide a valid email address.").isEqualTo(steps.getToolTip());
     }
 
     @Test
     public void loginWithCorrectEmailIncorrectPasswd() {
         steps.loginExitget("exitgetest@gmail.com", "00000");
-//        Assertions.assertThat("The login information you provided was not correct.", steps.getToolTip());
+        Assertions.assertThat("The login information you provided was not correct.").isEqualTo(steps.getToolTip());
     }
 
     @Test
     public void loginWithUnregisteredEmail() {
         steps.loginExitget("test_test@gmail.com", "0000");
-//        Assertions.assertThat("The login information you provided was not correct.", steps.getToolTip());
+        Assertions.assertThat("The login information you provided was not correct.").isEqualTo(steps.getToolTip());
     }
 
     @Test
     public void resetPassword() {
         steps.resetPasswd();
-//        Assertions.assertThat("Reset", steps.getResetPageTitle());
+        Assertions.assertThat("Reset").isEqualTo(steps.getResetPageTitle());
     }
 
     @Test
     public void closeLoginPage() {
         steps.closeLoginPage();
-//        Assertions.assertThat("A Popup Platform for Everyone", steps.getMainPageTitle());
+        Assertions.assertThat("A Popup Platform for Everyone").isEqualTo(steps.getMainPageTitle());
     }
 
 }
