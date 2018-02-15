@@ -3,6 +3,7 @@ package com.ksergie.pages;
 import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.By;
 
+import static jdk.nashorn.internal.objects.NativeString.trim;
 
 
 public class LogInPage extends PageObject {
@@ -58,6 +59,6 @@ public class LogInPage extends PageObject {
     }
 
     public String getToolTip(){
-        return find(toolTip).waitUntilVisible().getText();
+        return trim(find(toolTip).waitUntilVisible().getText());
     }
 }
