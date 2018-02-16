@@ -7,7 +7,7 @@ public class DashboardTestSteps {
 
     DashboardPage dashboardPage;
 
-    @Step("Click the \"Account\" button")
+    @Step
     public void clickAccountButton() {
         dashboardPage.clickAccountButton();
     }
