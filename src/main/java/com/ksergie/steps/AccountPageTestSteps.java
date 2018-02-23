@@ -1,28 +1,34 @@
 package com.ksergie.steps;
 
-import com.ksergie.pages.AccountPage;
-import com.ksergie.pages.DashboardPage;
-import com.ksergie.pages.LogInPage;
-import com.ksergie.pages.MainPage;
+import com.ksergie.pages.*;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.Step;
 
 @DefaultUrl("https://exitget.com/")
-
 public class AccountPageTestSteps {
 
     MainPage mainPage;
     LogInPage logInPage;
     AccountPage accountPage;
-    DashboardPage dashboardPage;
+    OverviewPage overviewPage;
 
-
-    @Step
-    public String getAccountPageTitle() {
+    public void openPage(){
         mainPage.open();
         mainPage.clickLogIn();
         logInPage.logInExitget("exitgetest@gmail.com", "20exitget17");
-        dashboardPage.clickAccountButton();
+        overviewPage.clickAccountButton();
+    }
+
+    @Step
+    public String getAccountPageTitle() {
+        openPage();
         return accountPage.getTitle();
+    }
+
+    @Step
+    public String clickCloseButton(){
+        openPage();
+        accountPage.clickCloseButton();
+        return overviewPage.getTitle();
     }
 }

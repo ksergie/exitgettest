@@ -20,7 +20,7 @@ public class MainPage extends PageObject {
 
     // Click the LogIn button
     public LogInPage clickLogIn() {
-        find(logInButton).click();
+        find(logInButton).waitUntilVisible().click();
         return new LogInPage();
     }
 

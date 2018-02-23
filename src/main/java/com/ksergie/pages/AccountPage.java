@@ -40,4 +40,9 @@ public class AccountPage extends PageObject {
         find(newPasswordField).waitUntilVisible().sendKeys(passwd);
         return this;
     }
+
+    public AccountPage closeAlertWindow() {
+        getAlert().accept();
+        return this;
+    }
 }

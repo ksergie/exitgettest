@@ -1,9 +1,6 @@
 package com.ksergie.steps;
 
-import com.ksergie.pages.DashboardPage;
-import com.ksergie.pages.LogInPage;
-import com.ksergie.pages.MainPage;
-import com.ksergie.pages.ResetPage;
+import com.ksergie.pages.*;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.Step;
 
@@ -12,50 +9,51 @@ public class LoginPageTestSteps {
 
     LogInPage logInPage;
     MainPage mainPage;
-    DashboardPage dashboardPage;
     ResetPage resetPage;
+    OverviewPage overviewPage;
+
+    public void openPage() {
+        mainPage.open();
+        mainPage.clickLogIn();
+    }
 
     @Step("Login page. Login to ExitGet.com")
     public void loginExitget(String email, String passwd){
-        mainPage.open();
-        mainPage.clickLogIn();
+        openPage();
         logInPage.logInExitget(email, passwd);
     }
 
     @Step("Login page. Click the \"Forgot password\" link")
     public void resetPasswd(){
-        mainPage.open();
-        mainPage.clickLogIn();
+        openPage();
         logInPage.clickResetPasswdLink();
     }
 
     @Step("Login page. Click the \"Close\" icon")
     public void closeLoginPage(){
-        mainPage.open();
-        mainPage.clickLogIn();
+        openPage();
         logInPage.closeWindow();
     }
 
-    @Step("Login page. Get tooltip message")
+    @Step
     public String getToolTip() {
         return logInPage.getToolTip();
     }
 
-    @Step("Login page. Get Dashboard title")
-    public String getDashboardTitle() {
+    @Step
+    public String getOverviewPageTitle() {
         loginExitget("exitgetest@gmail.com", "20exitget17");
-        return dashboardPage.getTitle();
+        return overviewPage.getTitle();
     }
 
-    @Step("Login page. Get MainPage title")
+    @Step
     public String getMainPageTitle() {
         return mainPage.getTitle();
     }
 
-    @Step("Login page. Get ResetPage title")
+    @Step
     public String getResetPageTitle() {
-        mainPage.open();
-        mainPage.clickLogIn();
+        openPage();
         logInPage.clickResetPasswdLink();
         return resetPage.getTitle();
     }

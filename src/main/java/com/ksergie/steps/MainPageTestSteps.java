@@ -6,23 +6,23 @@ import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.Step;
 
 @DefaultUrl("https://exitget.com/")
-public class MainPageTestStep {
+public class MainPageTestSteps {
 
     MainPage mainPage;
     LogInPage logInPage;
 
-    @Step("Open the exitget.com page")
+    @Step
     public void openMainPage(){
         mainPage.open();
     }
 
-    @Step("Click the \"Log In\" button")
+    @Step
     public void clickLoginButton() {
         openMainPage();
         mainPage.clickLogIn();
     }
 
-    @Step("Get LoginPage title")
+    @Step
     public String getLoginPageTitle() {
         return logInPage.getTitle();
     }
