@@ -34,6 +34,10 @@ public class QuickStartGuidePageTestSteps {
         quickStartGuidePage.fillDevModeForm();
         quickStartGuidePage.selectFilterDropDown("Redirection only");
         quickStartGuidePage.clickTemplate();
+        quickStartGuidePage.clickPersonalDesignButton();
+        quickStartGuidePage.fillRedirectionUrlField("https://exitget.com");
+        quickStartGuidePage.selectTimeDelayIntent();
+        quickStartGuidePage.confirmInstallation();
     }
 
 }
