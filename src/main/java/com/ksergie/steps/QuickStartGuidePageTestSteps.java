@@ -38,6 +38,7 @@ public class QuickStartGuidePageTestSteps {
         quickStartGuidePage.fillRedirectionUrlField("https://exitget.com");
         quickStartGuidePage.selectTimeDelayIntent();
         quickStartGuidePage.confirmInstallation();
+        quickStartGuidePage.swithTabs();
     }
 
 }

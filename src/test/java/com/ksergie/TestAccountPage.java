@@ -30,14 +30,14 @@ public class TestAccountPage {
     }
 
     @Test
-    @Pending
+//    @Pending
     @Title("Account page. Get Account page")
     public void getAccountPage() {
         Assertions.assertThat("a12f41728769c1").isEqualTo(steps.getAccountPageTitle());
     }
 
     @Test
-    @Pending
+//    @Pending
     @Title("Account page. Test the \"Close\" button")
     public void clickCloseButton() {
         Assertions.assertThat("VISITATIONS").isEqualTo(steps.clickCloseButton());

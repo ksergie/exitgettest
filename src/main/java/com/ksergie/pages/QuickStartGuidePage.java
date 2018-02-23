@@ -2,6 +2,7 @@ package com.ksergie.pages;
 
 import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 
 public class QuickStartGuidePage extends PageObject {
 
@@ -68,6 +69,11 @@ public class QuickStartGuidePage extends PageObject {
 
     public QuickStartGuidePage confirmInstallation() {
         find(confirmOpenButton).waitUntilVisible().click();
+        return this;
+    }
+
+    public QuickStartGuidePage swithTabs() {
+        find(By.cssSelector("body")).sendKeys(Keys.CONTROL +"\t");
         return this;
     }
 }

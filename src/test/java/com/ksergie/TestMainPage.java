@@ -25,7 +25,7 @@ public class TestMainPage {
     }
 
     @Test
-    @Pending
+//    @Pending
     @Title("Main page. Test \"Log In\" button")
     public void clickLoginButton() {
         steps.clickLoginButton();
