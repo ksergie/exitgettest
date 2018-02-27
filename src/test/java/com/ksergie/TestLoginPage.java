@@ -31,6 +31,11 @@ public class TestLoginPage {
     @Title("Login page. Login with correct data")
     public void loginWithCorrectData() {
         steps.loginExitget("exitgetest@gmail.com", "20exitget17");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Assertions.assertThat("VISITATIONS").isEqualTo(steps.getOverviewPageTitle());
     }
 
