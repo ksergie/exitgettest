@@ -38,6 +38,7 @@ public class TestQuickStartPage {
         logInPage.logInExitget("exitgetest@gmail.com", "20exitget17");
         overviewPage.clickAccountButton();
         accountPage.fillCurrentPasswordField("20exitget17");
+        waiting(2000);
         accountPage.clickResetAccountButton();
         accountPage.closeAlertWindow();
         //Asserts
