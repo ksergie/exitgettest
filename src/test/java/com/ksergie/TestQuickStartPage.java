@@ -42,29 +42,22 @@ public class TestQuickStartPage {
         waiting(2000);
         accountPage.clickResetAccountButton();
         accountPage.closeAlertWindow();
-        //Asserts
         accountPage.clickCloseButton();
         overviewPage.clickQuickStartGuideItem();
         quickStartGuidePage.fillInstallUrlForm();
-        Assert.assertEquals("ERROR IS APPEARED AFTER INPUT INSTALLATION URL AND CLICKING NEXT BUTTON", "Development mode", quickStartGuidePage.getDevModeFormTitle());
-//        Assertions.assertThat("Development mode").isEqualTo(quickStartGuidePage.getDevModeFormTitle());
+        Assert.assertEquals("ERROR PLACE - INPUT INSTALLATION URL FORM", "Development mode", quickStartGuidePage.getDevModeFormTitle());
         quickStartGuidePage.fillDevModeForm();
-        Assert.assertEquals("ERROR IS APPEARED AFTER FILLING DEVELOPMENT MODE FORM", "Choose the advertisement background", quickStartGuidePage.getTemplateFormTitle());
-//        Assertions.assertThat("Choose the advertisement background").isEqualTo(quickStartGuidePage.getTemplateFormTitle());
+        Assert.assertEquals("ERROR PLACE - DEVELOPMENT MODE FORM", "Choose the advertisement background", quickStartGuidePage.getTemplateFormTitle());
         quickStartGuidePage.selectFilterDropDown("Redirection only");
         quickStartGuidePage.clickTemplate();
         quickStartGuidePage.clickPersonalDesignButton();
-        Assert.assertEquals("ERROR IS APPEARED AFTER CLICKING THE NEXT BUTTON ON THE PERSONAL DESIGN FORM", "Profesional Design Customization", quickStartGuidePage.getDesignFormTitle());
-//        Assertions.assertThat("Profesional Design Customization").isEqualTo(quickStartGuidePage.getDesignFormTitle());
+        Assert.assertEquals("ERROR PLACE - PERSONAL DESIGN FORM", "Profesional Design Customization", quickStartGuidePage.getDesignFormTitle());
         quickStartGuidePage.fillRedirectionUrlField("https://exitget.com");
-        Assert.assertEquals("ERROR IS APPEAR AFTER FILLING REDIRECT URL FIELD AND CLICKING THE NEXT BUTTON", "Redirect to: https://exitget.com", quickStartGuidePage.getRedirectionFormTitle());
-//        Assertions.assertThat("Redirect to: https://exitget.com").isEqualTo(quickStartGuidePage.getRedirectionFormTitle());
+        Assert.assertEquals("ERROR PLACE - INPUT REDIRECT URL FORM", "Redirect to: https://exitget.com", quickStartGuidePage.getRedirectionFormTitle());
         quickStartGuidePage.selectTimeDelayIntent();
-        Assert.assertEquals("ERROR IS APPEAR AFTER SELECTING THE TIME DELAY INTEND", "1 rules configred", quickStartGuidePage.getRulesFormTitle());
-//        Assertions.assertThat("1 rules configred").isEqualTo(quickStartGuidePage.getRulesFormTitle());
+        Assert.assertEquals("ERROR PLACE - SELECT THE INTEND FORM", "1 rules configred", quickStartGuidePage.getRulesFormTitle());
         quickStartGuidePage.confirmInstallation();
-        Assert.assertEquals("ERROR IS APPEAR AFTER CLICKING CONFIRM INSTALLATION BUTTON", "Final step: Confirm installation", quickStartGuidePage.getFinalFormTitle());
-//        Assertions.assertThat("Final step: Confirm installation").isEqualTo(quickStartGuidePage.getFinalFormTitle());
+        Assert.assertEquals("ERROR PLACE - CONFIRM INSTALLATION FORM", "Final step: Confirm installation", quickStartGuidePage.getFinalFormTitle());
         String mainWindowHandle = driver.getWindowHandle();
         waiting(2000);
         swithBetweenWindows();
@@ -74,8 +67,7 @@ public class TestQuickStartPage {
         waiting(2000);
         driver.switchTo().window(mainWindowHandle);
         quickStartGuidePage.clickConfirmButton();
-//        Assertions.assertThat("Please rate our QuickStart Guide").isEqualTo(quickStartGuidePage.getRateFormTitle());
-        Assert.assertEquals("ERROR IS APPEARED AFTER CLICKING \"CONFIRM\" BUTTON", "Please rate our QuickStart Guide1", quickStartGuidePage.getRateFormTitle());
+        Assert.assertEquals("ERROR PLACE - RETURN AFTER CLOSING POPUP", "Please rate our QuickStart Guide1", quickStartGuidePage.getRateFormTitle());
     }
 
     private void swithBetweenWindows(){
