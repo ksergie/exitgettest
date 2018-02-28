@@ -67,7 +67,7 @@ public class TestQuickStartPage {
         waiting(2000);
         driver.switchTo().window(mainWindowHandle);
         quickStartGuidePage.clickConfirmButton();
-        Assert.assertEquals("ERROR PLACE - RETURN AFTER CLOSING POPUP", "Please rate our QuickStart Guide1", quickStartGuidePage.getRateFormTitle());
+        Assert.assertEquals("ERROR PLACE - RETURN AFTER CLOSING POPUP", "Please rate our QuickStart Guide", quickStartGuidePage.getRateFormTitle());
     }
 
     private void swithBetweenWindows(){
