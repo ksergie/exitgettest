@@ -5,6 +5,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Title;
 import org.assertj.core.api.Assertions;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -45,19 +46,25 @@ public class TestQuickStartPage {
         accountPage.clickCloseButton();
         overviewPage.clickQuickStartGuideItem();
         quickStartGuidePage.fillInstallUrlForm();
-        Assertions.assertThat("Development mode").isEqualTo(quickStartGuidePage.getDevModeFormTitle());
+        Assert.assertEquals("ERROR IS APPEARED AFTER INPUT INSTALLATION URL AND CLICKING NEXT BUTTON", "Development mode", quickStartGuidePage.getDevModeFormTitle());
+//        Assertions.assertThat("Development mode").isEqualTo(quickStartGuidePage.getDevModeFormTitle());
         quickStartGuidePage.fillDevModeForm();
-        Assertions.assertThat("Choose the advertisement background").isEqualTo(quickStartGuidePage.getTemplateFormTitle());
+        Assert.assertEquals("ERROR IS APPEARED AFTER FILLING DEVELOPMENT MODE FORM", "Choose the advertisement background", quickStartGuidePage.getTemplateFormTitle());
+//        Assertions.assertThat("Choose the advertisement background").isEqualTo(quickStartGuidePage.getTemplateFormTitle());
         quickStartGuidePage.selectFilterDropDown("Redirection only");
         quickStartGuidePage.clickTemplate();
         quickStartGuidePage.clickPersonalDesignButton();
-        Assertions.assertThat("Profesional Design Customization").isEqualTo(quickStartGuidePage.getDesignFormTitle());
+        Assert.assertEquals("ERROR IS APPEARED AFTER CLICKING THE NEXT BUTTON ON THE PERSONAL DESIGN FORM", "Profesional Design Customization", quickStartGuidePage.getDesignFormTitle());
+//        Assertions.assertThat("Profesional Design Customization").isEqualTo(quickStartGuidePage.getDesignFormTitle());
         quickStartGuidePage.fillRedirectionUrlField("https://exitget.com");
-        Assertions.assertThat("Redirect to: https://exitget.com").isEqualTo(quickStartGuidePage.getRedirectionFormTitle());
+        Assert.assertEquals("ERROR IS APPEAR AFTER FILLING REDIRECT URL FIELD AND CLICKING THE NEXT BUTTON", "Redirect to: https://exitget.com", quickStartGuidePage.getRedirectionFormTitle());
+//        Assertions.assertThat("Redirect to: https://exitget.com").isEqualTo(quickStartGuidePage.getRedirectionFormTitle());
         quickStartGuidePage.selectTimeDelayIntent();
-        Assertions.assertThat("1 rules configred").isEqualTo(quickStartGuidePage.getRulesFormTitle());
+        Assert.assertEquals("ERROR IS APPEAR AFTER SELECTING THE TIME DELAY INTEND", "1 rules configred", quickStartGuidePage.getRulesFormTitle());
+//        Assertions.assertThat("1 rules configred").isEqualTo(quickStartGuidePage.getRulesFormTitle());
         quickStartGuidePage.confirmInstallation();
-        Assertions.assertThat("Final step: Confirm installation").isEqualTo(quickStartGuidePage.getFinalFormTitle());
+        Assert.assertEquals("ERROR IS APPEAR AFTER CLICKING CONFIRM INSTALLATION BUTTON", "Final step: Confirm installation", quickStartGuidePage.getFinalFormTitle());
+//        Assertions.assertThat("Final step: Confirm installation").isEqualTo(quickStartGuidePage.getFinalFormTitle());
         String mainWindowHandle = driver.getWindowHandle();
         waiting(2000);
         swithBetweenWindows();
@@ -67,7 +74,8 @@ public class TestQuickStartPage {
         waiting(2000);
         driver.switchTo().window(mainWindowHandle);
         quickStartGuidePage.clickConfirmButton();
-        Assertions.assertThat("Please rate our QuickStart Guide").isEqualTo(quickStartGuidePage.getRateFormTitle());
+//        Assertions.assertThat("Please rate our QuickStart Guide").isEqualTo(quickStartGuidePage.getRateFormTitle());
+        Assert.assertEquals("ERROR IS APPEARED AFTER CLICKING \"CONFIRM\" BUTTON", "Please rate our QuickStart Guide1", quickStartGuidePage.getRateFormTitle());
     }
 
     private void swithBetweenWindows(){
