@@ -21,10 +21,10 @@ public class TestLoginPage {
     @Managed
     WebDriver driver;
 
-    @Before
-    public void maxSizeWindow() {
-        driver.manage().window().maximize();
-    }
+//    @Before
+//    public void maxSizeWindow() {
+//        driver.manage().window().maximize();
+//    }
 
     @Test
 //    @Pending

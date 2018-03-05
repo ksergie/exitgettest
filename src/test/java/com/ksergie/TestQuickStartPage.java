@@ -26,10 +26,10 @@ public class TestQuickStartPage {
     @Managed
     WebDriver driver;
 
-    @Before
-    public void maxSizeWindow() {
-        driver.manage().window().maximize();
-    }
+//    @Before
+//    public void maxSizeWindow() {
+//        driver.manage().window().maximize();
+//    }
 
     @Test
     @Title("Test the QuickStart Guide")
