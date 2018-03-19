@@ -56,6 +56,7 @@ public class TestQuickStartPage {
         Assert.assertEquals("ERROR PLACE - INPUT REDIRECT URL FORM", "Redirect to: https://exitget.com", quickStartGuidePage.getRedirectionFormTitle());
         quickStartGuidePage.selectTimeDelayIntent();
         Assert.assertEquals("ERROR PLACE - SELECT THE INTEND FORM", "1 rules configred", quickStartGuidePage.getRulesFormTitle());
+        waiting(2000);
         quickStartGuidePage.confirmInstallation();
         Assert.assertEquals("ERROR PLACE - CONFIRM INSTALLATION FORM", "Final step: Confirm installation", quickStartGuidePage.getFinalFormTitle());
         String mainWindowHandle = driver.getWindowHandle();
