@@ -39,11 +39,10 @@ public class LogInPage extends PageObject {
         return this;
     }
 
-    public OverviewPage logInExitget(String email, String passwd) {
-        this.typeEmail(email);
-        this.typePassword(passwd);
-        this.clickLoginButton();
-        return new OverviewPage();
+    public void logInExitget(String email, String passwd) {
+        typeEmail(email);
+        typePassword(passwd);
+        clickLoginButton();
     }
 
     // Click the "Fogot password" link
